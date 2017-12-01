@@ -19,15 +19,15 @@
 # limitations under the License.
 #
 
-default['uwsgi']['config']['directories']['etc'] = '/etc/uwsgi'
-default['uwsgi']['config']['directories']['apps_available'] = '/etc/uwsgi/apps-available'
-default['uwsgi']['config']['directories']['apps_enabled'] = '/etc/uwsgi/apps-enabled'
-default['uwsgi']['config']['directories']['logs'] = '/var/log/uwsgi'
-default['uwsgi']['config']['directories']['logs_app'] = '/var/log/uwsgi/app'
-default['uwsgi']['config']['directories']['run'] = '/run/uwsgi'
-default['uwsgi']['config']['directories']['run_app'] = '/var/run/uwsgi/app'
-default['uwsgi']['config']['directories']['share'] = '/usr/share/uwsgi'
-default['uwsgi']['config']['directories']['share_init'] = '/usr/share/uwsgi/init'
-default['uwsgi']['config']['directories']['share_conf'] = '/usr/share/uwsgi/conf'
+default['bq_uwsgi']['config']['directories']['etc'] = '/etc/uwsgi'
+default['bq_uwsgi']['config']['directories']['apps_available'] = '/etc/uwsgi/apps-available'
+default['bq_uwsgi']['config']['directories']['apps_enabled'] = '/etc/uwsgi/apps-enabled'
+default['bq_uwsgi']['config']['directories']['logs'] = '/var/log/uwsgi'
+default['bq_uwsgi']['config']['directories']['logs_app'] = '/var/log/uwsgi/app'
+default['bq_uwsgi']['config']['directories']['run'] = '/run/uwsgi'
+default['bq_uwsgi']['config']['directories']['run_app'] = '/var/run/uwsgi/app'
+default['bq_uwsgi']['config']['directories']['share'] = '/usr/share/uwsgi'
+default['bq_uwsgi']['config']['directories']['share_init'] = '/usr/share/uwsgi/init'
+default['bq_uwsgi']['config']['directories']['share_conf'] = '/usr/share/uwsgi/conf'
 
-default['uwsgi']['config']['emperor'] = '/etc/uwsgi/vassals'
+default['bq_uwsgi']['config']['emperor'] = '/etc/uwsgi/vassals'

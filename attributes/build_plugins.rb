@@ -22,9 +22,9 @@
 ###
 # Plugins - override :compile to determine whether to compile a plugin or not
 ###
-default['uwsgi']['plugins']['root'] = '/usr/lib/uwsgi'
-default['uwsgi']['plugins']['directory'] = '/usr/lib/uwsgi/plugins'
-default['uwsgi']['plugins']['install'] = [
+default['bq_uwsgi']['plugins']['root'] = '/usr/lib/uwsgi'
+default['bq_uwsgi']['plugins']['directory'] = '/usr/lib/uwsgi/plugins'
+default['bq_uwsgi']['plugins']['install'] = [
     { name: 'airbrake', compile: false },
     { name: 'alarm_curl', compile: false },
     { name: 'alarm_speech', compile: false },

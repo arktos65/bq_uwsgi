@@ -19,5 +19,5 @@
 # limitations under the License.
 #
 
-default['uwsgi']['core']['binary'] = 'uwsgi-core'
-default['uwsgi']['core']['directory'] = '/usr/bin'
+default['bq_uwsgi']['core']['binary'] = 'uwsgi-core'
+default['bq_uwsgi']['core']['directory'] = '/usr/bin'

@@ -25,9 +25,9 @@ wrapper cookbooks.
         action [:create, :enable]
     end
     
-The application name should not include a path, only the target file name.  The attribute `node['uwsgi']['uwsgi']['config']['directories']['apps_available']`
+The application name should not include a path, only the target file name.  The attribute `node['bq_uwsgi']['bq_uwsgi']['config']['directories']['apps_available']`
 contains the path where the target will be copied to.  When using the :enable action, the attribute
-`node['uwsgi']['config']['directories']['apps_enabled']` specifies where the symlink will be created.  
+`node['bq_uwsgi']['config']['directories']['apps_enabled']` specifies where the symlink will be created.  
 
 In a wrapper cookbook, if you wish to change the default locations of the apps_available and apps_enabled attributes,
 use the node.set in your recipe before using the uwsgi_application resource. Your application configuration files
@@ -35,23 +35,23 @@ should be stored in the templates directory.
 
 ## Attributes
 
-    default['uwsgi']['version'] - Version to download and install.
-    default['uwsgi']['download_url'] - URL of source code.
-    default['uwsgi']['service'] - Service name to be created.
+    default['bq_uwsgi']['version'] - Version to download and install.
+    default['bq_uwsgi']['download_url'] - URL of source code.
+    default['bq_uwsgi']['service'] - Service name to be created.
     
-    default['uwsgi']['core']['binary'] - File name of uWSGI core binary.
-    default['uwsgi']['core']['directory'] - Path where core binary and plugins will be installed.
+    default['bq_uwsgi']['core']['binary'] - File name of uWSGI core binary.
+    default['bq_uwsgi']['core']['directory'] - Path where core binary and plugins will be installed.
     
-    default['uwsgi']['config']['directories']['etc'] = "/etc/uwsgi"
-    default['uwsgi']['config']['directories']['apps_available'] = "/etc/uwsgi/apps-available"
-    default['uwsgi']['config']['directories']['apps_enabled'] = "/etc/uwsgi/apps-enabled"
-    default['uwsgi']['config']['directories']['logs'] = "/var/log/uwsgi"
-    default['uwsgi']['config']['directories']['logs_app'] = "/var/log/uwsgi/app"
-    default['uwsgi']['config']['directories']['run'] = "/run/uwsgi"
-    default['uwsgi']['config']['directories']['run_app'] = "/var/run/uwsgi/app"
-    default['uwsgi']['config']['directories']['share'] = "/usr/share/uwsgi"
-    default['uwsgi']['config']['directories']['share_init'] = "/usr/share/uwsgi/init"
-    default['uwsgi']['config']['directories']['share_conf'] = "/usr/share/uwsgi/conf"
+    default['bq_uwsgi']['config']['directories']['etc'] = "/etc/uwsgi"
+    default['bq_uwsgi']['config']['directories']['apps_available'] = "/etc/uwsgi/apps-available"
+    default['bq_uwsgi']['config']['directories']['apps_enabled'] = "/etc/uwsgi/apps-enabled"
+    default['bq_uwsgi']['config']['directories']['logs'] = "/var/log/uwsgi"
+    default['bq_uwsgi']['config']['directories']['logs_app'] = "/var/log/uwsgi/app"
+    default['bq_uwsgi']['config']['directories']['run'] = "/run/uwsgi"
+    default['bq_uwsgi']['config']['directories']['run_app'] = "/var/run/uwsgi/app"
+    default['bq_uwsgi']['config']['directories']['share'] = "/usr/share/uwsgi"
+    default['bq_uwsgi']['config']['directories']['share_init'] = "/usr/share/uwsgi/init"
+    default['bq_uwsgi']['config']['directories']['share_conf'] = "/usr/share/uwsgi/conf"
     
 Control which plugins are compiled by setting each plugins' :compile attribute to true or false.  See the 
 `attributes/build-plugins.rb` for a list of available plugins.

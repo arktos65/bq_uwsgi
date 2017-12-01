@@ -46,7 +46,7 @@ unless File.exist?('/usr/bin/python')
 end
 
 # Add other dependencies
-if node['platform_family'] == 'debian' && node['uwsgi']['pcre']['enable']
+if node['platform_family'] == 'debian' && node['bq_uwsgi']['pcre']['enable']
   package 'libpcre3' do
     action :install
   end
@@ -56,19 +56,19 @@ if node['platform_family'] == 'debian' && node['uwsgi']['pcre']['enable']
 end
 
 # Download the source code
-remote_file "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}.tar.gz" do
-  source "#{node['uwsgi']['download_url']}/uwsgi-#{node['uwsgi']['version']}.tar.gz"
+remote_file "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['bq_uwsgi']['version']}.tar.gz" do
+  source "#{node['bq_uwsgi']['download_url']}/uwsgi-#{node['bq_uwsgi']['version']}.tar.gz"
   action :create_if_missing
 end
 
-bash "extract_uwsgi_#{node['uwsgi']['version']}_source" do
+bash "extract_uwsgi_#{node['bq_uwsgi']['version']}_source" do
   cwd Chef::Config[:file_cache_path]
   code <<-EOH
-    tar -zxvf uwsgi-#{node['uwsgi']['version']}.tar.gz
+    tar -zxvf uwsgi-#{node['bq_uwsgi']['version']}.tar.gz
   EOH
 end
 
-directory node['uwsgi']['buildconf'] do
+directory node['bq_uwsgi']['buildconf'] do
   owner 'root'
   group 'root'
   mode '0755'
@@ -76,19 +76,19 @@ directory node['uwsgi']['buildconf'] do
 end
 
 # Create directories for uWSGI binaries
-directory node['uwsgi']['core']['directory'] do
+directory node['bq_uwsgi']['core']['directory'] do
   owner 'root'
   group 'root'
   mode '0755'
   action :create
 end
-directory node['uwsgi']['plugins']['root'] do
+directory node['bq_uwsgi']['plugins']['root'] do
   owner 'root'
   group 'root'
   mode '0755'
   action :create
 end
-directory node['uwsgi']['plugins']['directory'] do
+directory node['bq_uwsgi']['plugins']['directory'] do
   owner 'root'
   group 'root'
   mode '0755'

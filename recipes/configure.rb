@@ -25,7 +25,7 @@
 
 # Create the runtime directories
 log 'Creating uWSGI runtime directories'
-node['uwsgi']['config']['directories'].each do |key, value|
+node['bq_uwsgi']['config']['directories'].each do |key, value|
   log "#{key} = #{value}"
   directory value do
     owner 'root'
@@ -35,8 +35,8 @@ node['uwsgi']['config']['directories'].each do |key, value|
   end
 end
 
-if node['uwsgi']['emperor']['enable']
-  directory node['uwsgi']['config']['emperor'] do
+if node['bq_uwsgi']['emperor']['enable']
+  directory node['bq_uwsgi']['config']['emperor'] do
     owner 'root'
     group 'root'
     mode 0o755

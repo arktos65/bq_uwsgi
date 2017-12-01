@@ -20,11 +20,11 @@
 #
 
 # uWSGI source
-default['uwsgi']['version'] = '2.0.15'
-default['uwsgi']['download_url'] = 'http://projects.unbit.it/downloads'
-default['uwsgi']['service'] = 'uwsgi-server'
+default['bq_uwsgi']['version'] = '2.0.15'
+default['bq_uwsgi']['download_url'] = 'http://projects.unbit.it/downloads'
+default['bq_uwsgi']['service'] = 'uwsgi-server'
 
 # Other configuration settings
-default['uwsgi']['pcre']['enable'] = true
-default['uwsgi']['emperor']['enable'] = false
-default['uwsgi']['buildconf'] = "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}/buildconf"
+default['bq_uwsgi']['pcre']['enable'] = true
+default['bq_uwsgi']['emperor']['enable'] = false
+default['bq_uwsgi']['buildconf'] = "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['bq_uwsgi']['version']}/buildconf"
