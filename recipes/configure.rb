@@ -2,7 +2,7 @@
 
 #
 # Cookbook Name:: bq_uwsgi
-# Spec:: default
+# Recipe:: configure
 #
 # Copyright 2017, Sean Michael Sullivan.
 #
@@ -19,19 +19,29 @@
 # limitations under the License.
 #
 
-require 'spec_helper'
+###
+# Recipe to install application and configure server environment
+###
 
-# describe 'bq_uwsgi::default' do
-#   context 'When all attributes are default, on an Ubuntu 16.04' do
-#     let(:chef_run) do
-#       # for a complete list of available platforms and versions see:
-#       # https://github.com/customink/fauxhai/blob/master/PLATFORMS.md
-#       runner = ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04')
-#       runner.converge(described_recipe)
-#     end
-#
-#     it 'converges successfully' do
-#       expect { chef_run }.to_not raise_error
-#     end
-#   end
-# end
+# Create the runtime directories
+log 'Creating uWSGI runtime directories'
+node['bq_uwsgi']['config']['directories'].each do |key, value|
+  log "#{key} = #{value}"
+  directory value do
+    owner 'root'
+    group 'root'
+    mode 0o755
+    action :create
+  end
+end
+
+if node['bq_uwsgi']['emperor']['enable']
+  directory node['bq_uwsgi']['config']['emperor'] do
+    owner 'root'
+    group 'root'
+    mode 0o755
+    action :create
+  end
+end
+
+include_recipe 'bq_uwsgi::debian' if node['platform_family'] == 'debian'

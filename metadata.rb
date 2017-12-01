@@ -1,20 +1,23 @@
-name 'bq_uwsgi'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
-license 'All Rights Reserved'
-description 'Installs/Configures bq_uwsgi'
-long_description 'Installs/Configures bq_uwsgi'
-version '0.1.0'
-chef_version '>= 12.1' if respond_to?(:chef_version)
+# frozen_string_literal: true
 
-# The `issues_url` points to the location where issues for this cookbook are
-# tracked.  A `View Issues` link will be displayed on this cookbook's page when
-# uploaded to a Supermarket.
-#
-# issues_url 'https://github.com/<insert_org_here>/bq_uwsgi/issues'
+name             'bq_uwsgi'
+maintainer       'Sean M. Sullivan'
+maintainer_email 'sean@barriquesoft.com'
+license          'Apache-2.0'
+description      'Installs/Configures uWSGI application server.'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          '0.1.0'
+issues_url       'https://github.com/arktos65/bq_uwsgi/issues' if respond_to?(:issues_url)
+source_url       'https://github.com/arktos65/bq_uwsgi' if respond_to?(:source_url)
+supports         'ubuntu', '>= 14.04'
+chef_version     '~> 12'
 
-# The `source_url` points to the development repository for this cookbook.  A
-# `View Source` link will be displayed on this cookbook's page when uploaded to
-# a Supermarket.
-#
-# source_url 'https://github.com/<insert_org_here>/bq_uwsgi'
+recipe 'uwsgi', 'Default recipe builds core, plugins, and installs runtime environment.'
+recipe 'bq_uwsgi::build_core', 'Builds the uWSGI core program.'
+recipe 'bq_uwsgi::build_plugins', 'Builds the uWSGI plugins.'
+recipe 'bq_uwsgi::configure', 'Creates and configures the runtime environment.'
+
+depends 'apt', '~> 6.1.3'
+depends 'build-essential', '~> 8.0.3'
+depends 'poise-python', '~> 1.6.0'
+depends 'rsyslog', '~> 5.1.0'

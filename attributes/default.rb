@@ -2,7 +2,7 @@
 
 #
 # Cookbook Name:: bq_uwsgi
-# Spec:: default
+# Recipe:: default
 #
 # Copyright 2017, Sean Michael Sullivan.
 #
@@ -19,19 +19,12 @@
 # limitations under the License.
 #
 
-require 'spec_helper'
+# uWSGI source
+default['bq_uwsgi']['version'] = '2.0.15'
+default['bq_uwsgi']['download_url'] = 'http://projects.unbit.it/downloads'
+default['bq_uwsgi']['service'] = 'uwsgi-server'
 
-# describe 'bq_uwsgi::default' do
-#   context 'When all attributes are default, on an Ubuntu 16.04' do
-#     let(:chef_run) do
-#       # for a complete list of available platforms and versions see:
-#       # https://github.com/customink/fauxhai/blob/master/PLATFORMS.md
-#       runner = ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04')
-#       runner.converge(described_recipe)
-#     end
-#
-#     it 'converges successfully' do
-#       expect { chef_run }.to_not raise_error
-#     end
-#   end
-# end
+# Other configuration settings
+default['bq_uwsgi']['pcre']['enable'] = true
+default['bq_uwsgi']['emperor']['enable'] = false
+default['bq_uwsgi']['buildconf'] = "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['bq_uwsgi']['version']}/buildconf"

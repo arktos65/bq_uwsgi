@@ -2,7 +2,7 @@
 
 #
 # Cookbook Name:: bq_uwsgi
-# Spec:: default
+# Recipe:: build-core
 #
 # Copyright 2017, Sean Michael Sullivan.
 #
@@ -19,19 +19,5 @@
 # limitations under the License.
 #
 
-require 'spec_helper'
-
-# describe 'bq_uwsgi::default' do
-#   context 'When all attributes are default, on an Ubuntu 16.04' do
-#     let(:chef_run) do
-#       # for a complete list of available platforms and versions see:
-#       # https://github.com/customink/fauxhai/blob/master/PLATFORMS.md
-#       runner = ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04')
-#       runner.converge(described_recipe)
-#     end
-#
-#     it 'converges successfully' do
-#       expect { chef_run }.to_not raise_error
-#     end
-#   end
-# end
+default['bq_uwsgi']['core']['binary'] = 'uwsgi-core'
+default['bq_uwsgi']['core']['directory'] = '/usr/bin'
