@@ -44,4 +44,4 @@ if node['bq_uwsgi']['emperor']['enable']
   end
 end
 
-include_recipe 'uwsgi::debian' if node['platform_family'] == 'debian'
+include_recipe 'bq_uwsgi::debian' if node['platform_family'] == 'debian'
