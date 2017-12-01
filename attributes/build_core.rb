@@ -2,7 +2,7 @@
 
 #
 # Cookbook Name:: bq_uwsgi
-# Recipe:: default
+# Recipe:: build-core
 #
 # Copyright 2017, Sean Michael Sullivan.
 #
@@ -19,8 +19,5 @@
 # limitations under the License.
 #
 
-# Compile the uWSGI core application
-include_recipe 'bq_uwsgi::prepare'
-include_recipe 'bq_uwsgi::build_core'
-include_recipe 'bq_uwsgi::build_plugins'
-include_recipe 'bq_uwsgi::configure'
+default['uwsgi']['core']['binary'] = 'uwsgi-core'
+default['uwsgi']['core']['directory'] = '/usr/bin'

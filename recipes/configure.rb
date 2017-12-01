@@ -2,7 +2,7 @@
 
 #
 # Cookbook Name:: bq_uwsgi
-# Recipe:: default
+# Recipe:: configure
 #
 # Copyright 2017, Sean Michael Sullivan.
 #
@@ -19,8 +19,29 @@
 # limitations under the License.
 #
 
-# Compile the uWSGI core application
-include_recipe 'bq_uwsgi::prepare'
-include_recipe 'bq_uwsgi::build_core'
-include_recipe 'bq_uwsgi::build_plugins'
-include_recipe 'bq_uwsgi::configure'
+###
+# Recipe to install application and configure server environment
+###
+
+# Create the runtime directories
+log 'Creating uWSGI runtime directories'
+node['uwsgi']['config']['directories'].each do |key, value|
+  log "#{key} = #{value}"
+  directory value do
+    owner 'root'
+    group 'root'
+    mode 0o755
+    action :create
+  end
+end
+
+if node['uwsgi']['emperor']['enable']
+  directory node['uwsgi']['config']['emperor'] do
+    owner 'root'
+    group 'root'
+    mode 0o755
+    action :create
+  end
+end
+
+include_recipe 'uwsgi::debian' if node['platform_family'] == 'debian'

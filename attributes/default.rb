@@ -19,8 +19,12 @@
 # limitations under the License.
 #
 
-# Compile the uWSGI core application
-include_recipe 'bq_uwsgi::prepare'
-include_recipe 'bq_uwsgi::build_core'
-include_recipe 'bq_uwsgi::build_plugins'
-include_recipe 'bq_uwsgi::configure'
+# uWSGI source
+default['uwsgi']['version'] = '2.0.15'
+default['uwsgi']['download_url'] = 'http://projects.unbit.it/downloads'
+default['uwsgi']['service'] = 'uwsgi-server'
+
+# Other configuration settings
+default['uwsgi']['pcre']['enable'] = true
+default['uwsgi']['emperor']['enable'] = false
+default['uwsgi']['buildconf'] = "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['uwsgi']['version']}/buildconf"
