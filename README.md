@@ -1,5 +1,5 @@
-UWSGI COOKBOOK
-==============
+BQ_UWSGI COOKBOOK
+=================
 [![Build Status](https://secure.travis-ci.org/arktos65/uwsgi-cookbook.png)](http://travis-ci.org/arktos65/uwsgi-cookbook)
 
 uWSGI is a high performance application server framework for Python, Ruby, and other applications.  This cookbook
@@ -75,7 +75,7 @@ License & Authors
 - Author:: Sean M. Sullivan (<sean@barriquesoft.com>)
 
 ```text
-Copyright:: 2014-2017 Pulselocker, Inc.
+Copyright:: 2017, Sean Michael Sullivan
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
