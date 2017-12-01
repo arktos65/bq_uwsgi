@@ -58,14 +58,14 @@ Control which plugins are compiled by setting each plugins' :compile attribute t
 
 ## Usage
 
-### uwsgi::default
+### bq_uwsgi::default
 
-Include `uwsgi` in your node's `run_list`:
+Include `bq_uwsgi` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[uwsgi::default]"
+    "recipe[bq_uwsgi::default]"
   ]
 }
 ```
