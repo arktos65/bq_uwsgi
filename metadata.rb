@@ -6,7 +6,7 @@ maintainer_email 'sean@barriquesoft.com'
 license          'Apache-2.0'
 description      'Installs/Configures uWSGI application server.'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.1.0'
+version          '0.2.0'
 issues_url       'https://github.com/arktos65/bq_uwsgi/issues' if respond_to?(:issues_url)
 source_url       'https://github.com/arktos65/bq_uwsgi' if respond_to?(:source_url)
 supports         'ubuntu', '>= 14.04'
