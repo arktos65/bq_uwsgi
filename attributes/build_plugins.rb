@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 #
-# Cookbook Name:: bq_uwsgi
+# Cookbook Name:: tgw_uwsgi
 # Recipe:: build-plugins
 #
-# Copyright 2017, BarriqueSoft.
+# Copyright 2017 TGW Consulting, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.
@@ -22,9 +22,9 @@
 ###
 # Plugins - override :compile to determine whether to compile a plugin or not
 ###
-default['bq_uwsgi']['plugins']['root'] = '/usr/lib/uwsgi'
-default['bq_uwsgi']['plugins']['directory'] = '/usr/lib/uwsgi/plugins'
-default['bq_uwsgi']['plugins']['install'] = [
+default['tgw_uwsgi']['plugins']['root'] = '/usr/lib/uwsgi'
+default['tgw_uwsgi']['plugins']['directory'] = '/usr/lib/uwsgi/plugins'
+default['tgw_uwsgi']['plugins']['install'] = [
     { name: 'airbrake', compile: false },
     { name: 'alarm_curl', compile: false },
     { name: 'alarm_speech', compile: false },

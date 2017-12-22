@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 #
-# Cookbook Name:: bq_uwsgi
+# Cookbook Name:: tgw_uwsgi
 # Recipe:: configure
 #
-# Copyright 2017, BarriqueSoft.
+# Copyright 2017 TGW Consulting, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 
 # Create the runtime directories
 log 'Creating uWSGI runtime directories'
-node['bq_uwsgi']['config']['directories'].each do |key, value|
+node['tgw_uwsgi']['config']['directories'].each do |key, value|
   log "#{key} = #{value}"
   directory value do
     owner 'root'
@@ -35,8 +35,8 @@ node['bq_uwsgi']['config']['directories'].each do |key, value|
   end
 end
 
-if node['bq_uwsgi']['emperor']['enable']
-  directory node['bq_uwsgi']['config']['emperor'] do
+if node['tgw_uwsgi']['emperor']['enable']
+  directory node['tgw_uwsgi']['config']['emperor'] do
     owner 'root'
     group 'root'
     mode 0o755
@@ -44,4 +44,4 @@ if node['bq_uwsgi']['emperor']['enable']
   end
 end
 
-include_recipe 'bq_uwsgi::debian' if node['platform_family'] == 'debian'
+include_recipe 'tgw_uwsgi::debian' if node['platform_family'] == 'debian'

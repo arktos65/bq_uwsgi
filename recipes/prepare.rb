@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 #
-# Cookbook Name:: bq_uwsgi
+# Cookbook Name:: tgw_uwsgi
 # Recipe:: _prepare
 #
-# Copyright 2017, BarriqueSoft.
+# Copyright 2017 TGW Consulting, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ unless File.exist?('/usr/bin/python')
 end
 
 # Add other dependencies
-if node['platform_family'] == 'debian' && node['bq_uwsgi']['pcre']['enable']
+if node['platform_family'] == 'debian' && node['tgw_uwsgi']['pcre']['enable']
   package 'libpcre3' do
     action :install
   end
@@ -56,19 +56,19 @@ if node['platform_family'] == 'debian' && node['bq_uwsgi']['pcre']['enable']
 end
 
 # Download the source code
-remote_file "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['bq_uwsgi']['version']}.tar.gz" do
-  source "#{node['bq_uwsgi']['download_url']}/uwsgi-#{node['bq_uwsgi']['version']}.tar.gz"
+remote_file "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['tgw_uwsgi']['version']}.tar.gz" do
+  source "#{node['tgw_uwsgi']['download_url']}/uwsgi-#{node['tgw_uwsgi']['version']}.tar.gz"
   action :create_if_missing
 end
 
-bash "extract_uwsgi_#{node['bq_uwsgi']['version']}_source" do
+bash "extract_uwsgi_#{node['tgw_uwsgi']['version']}_source" do
   cwd Chef::Config[:file_cache_path]
   code <<-EOH
-    tar -zxvf uwsgi-#{node['bq_uwsgi']['version']}.tar.gz
+    tar -zxvf uwsgi-#{node['tgw_uwsgi']['version']}.tar.gz
   EOH
 end
 
-directory node['bq_uwsgi']['buildconf'] do
+directory node['tgw_uwsgi']['buildconf'] do
   owner 'root'
   group 'root'
   mode '0755'
@@ -76,19 +76,19 @@ directory node['bq_uwsgi']['buildconf'] do
 end
 
 # Create directories for uWSGI binaries
-directory node['bq_uwsgi']['core']['directory'] do
+directory node['tgw_uwsgi']['core']['directory'] do
   owner 'root'
   group 'root'
   mode '0755'
   action :create
 end
-directory node['bq_uwsgi']['plugins']['root'] do
+directory node['tgw_uwsgi']['plugins']['root'] do
   owner 'root'
   group 'root'
   mode '0755'
   action :create
 end
-directory node['bq_uwsgi']['plugins']['directory'] do
+directory node['tgw_uwsgi']['plugins']['directory'] do
   owner 'root'
   group 'root'
   mode '0755'

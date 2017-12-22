@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 #
-# Cookbook Name:: bq_uwsgi
+# Cookbook Name:: tgw_uwsgi
 # Recipe:: build-core
 #
-# Copyright 2017, BarriqueSoft.
+# Copyright 2017 TGW Consulting, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,5 +19,5 @@
 # limitations under the License.
 #
 
-default['bq_uwsgi']['core']['binary'] = 'uwsgi-core'
-default['bq_uwsgi']['core']['directory'] = '/usr/bin'
+default['tgw_uwsgi']['core']['binary'] = 'uwsgi-core'
+default['tgw_uwsgi']['core']['directory'] = '/usr/bin'

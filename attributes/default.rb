@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 #
-# Cookbook Name:: bq_uwsgi
+# Cookbook Name:: tgw_uwsgi
 # Recipe:: default
 #
-# Copyright 2017, BarriqueSoft.
+# Copyright 2017 TGW Consulting, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,11 +20,11 @@
 #
 
 # uWSGI source
-default['bq_uwsgi']['version'] = '2.0.15'
-default['bq_uwsgi']['download_url'] = 'http://projects.unbit.it/downloads'
-default['bq_uwsgi']['service'] = 'uwsgi-server'
+default['tgw_uwsgi']['version'] = '2.0.15'
+default['tgw_uwsgi']['download_url'] = 'http://projects.unbit.it/downloads'
+default['tgw_uwsgi']['service'] = 'uwsgi-server'
 
 # Other configuration settings
-default['bq_uwsgi']['pcre']['enable'] = true
-default['bq_uwsgi']['emperor']['enable'] = false
-default['bq_uwsgi']['buildconf'] = "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['bq_uwsgi']['version']}/buildconf"
+default['tgw_uwsgi']['pcre']['enable'] = true
+default['tgw_uwsgi']['emperor']['enable'] = false
+default['tgw_uwsgi']['buildconf'] = "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['tgw_uwsgi']['version']}/buildconf"

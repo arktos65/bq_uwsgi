@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 #
-# Cookbook Name:: bq_uwsgi
+# Cookbook Name:: tgw_uwsgi
 # Recipe:: build-plugins
 #
-# Copyright 2017, BarriqueSoft.
+# Copyright 2017 TGW Consulting, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,20 +24,20 @@
 ###
 
 # Compile the desired plugins and copy them to their home
-node['bq_uwsgi']['plugins']['install'].each do |plugin|
+node['tgw_uwsgi']['plugins']['install'].each do |plugin|
   next unless plugin['compile']
     bash "compiling_#{plugin['name']}_plugin" do
-      cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['bq_uwsgi']['version']}"
+      cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['tgw_uwsgi']['version']}"
       code <<-EOH
         python uwsgiconfig.py --plugin plugins/#{plugin['name']} package
       EOH
     end
     bash "installing_#{plugin['name']}_plugin" do
-      cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['bq_uwsgi']['version']}"
+      cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['tgw_uwsgi']['version']}"
       code <<-EOH
-        mv -fv #{node['bq_uwsgi']['plugins']['root']}/#{plugin['name']}_plugin.so #{node['bq_uwsgi']['plugins']['directory']}/
-        chown root:root #{node['bq_uwsgi']['plugins']['directory']}/#{plugin['name']}_plugin.so
-        chmod 0644 #{node['bq_uwsgi']['plugins']['directory']}/#{plugin['name']}_plugin.so
+        mv -fv #{node['tgw_uwsgi']['plugins']['root']}/#{plugin['name']}_plugin.so #{node['tgw_uwsgi']['plugins']['directory']}/
+        chown root:root #{node['tgw_uwsgi']['plugins']['directory']}/#{plugin['name']}_plugin.so
+        chmod 0644 #{node['tgw_uwsgi']['plugins']['directory']}/#{plugin['name']}_plugin.so
       EOH
     end
 end

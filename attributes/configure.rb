@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 #
-# Cookbook Name:: bq_uwsgi
+# Cookbook Name:: tgw_uwsgi
 # Recipe:: configure
 #
-# Copyright 2017, BarriqueSoft.
+# Copyright 2017 TGW Consulting, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,15 +19,15 @@
 # limitations under the License.
 #
 
-default['bq_uwsgi']['config']['directories']['etc'] = '/etc/uwsgi'
-default['bq_uwsgi']['config']['directories']['apps_available'] = '/etc/uwsgi/apps-available'
-default['bq_uwsgi']['config']['directories']['apps_enabled'] = '/etc/uwsgi/apps-enabled'
-default['bq_uwsgi']['config']['directories']['logs'] = '/var/log/uwsgi'
-default['bq_uwsgi']['config']['directories']['logs_app'] = '/var/log/uwsgi/app'
-default['bq_uwsgi']['config']['directories']['run'] = '/run/uwsgi'
-default['bq_uwsgi']['config']['directories']['run_app'] = '/var/run/uwsgi/app'
-default['bq_uwsgi']['config']['directories']['share'] = '/usr/share/uwsgi'
-default['bq_uwsgi']['config']['directories']['share_init'] = '/usr/share/uwsgi/init'
-default['bq_uwsgi']['config']['directories']['share_conf'] = '/usr/share/uwsgi/conf'
+default['tgw_uwsgi']['config']['directories']['etc'] = '/etc/uwsgi'
+default['tgw_uwsgi']['config']['directories']['apps_available'] = '/etc/uwsgi/apps-available'
+default['tgw_uwsgi']['config']['directories']['apps_enabled'] = '/etc/uwsgi/apps-enabled'
+default['tgw_uwsgi']['config']['directories']['logs'] = '/var/log/uwsgi'
+default['tgw_uwsgi']['config']['directories']['logs_app'] = '/var/log/uwsgi/app'
+default['tgw_uwsgi']['config']['directories']['run'] = '/run/uwsgi'
+default['tgw_uwsgi']['config']['directories']['run_app'] = '/var/run/uwsgi/app'
+default['tgw_uwsgi']['config']['directories']['share'] = '/usr/share/uwsgi'
+default['tgw_uwsgi']['config']['directories']['share_init'] = '/usr/share/uwsgi/init'
+default['tgw_uwsgi']['config']['directories']['share_conf'] = '/usr/share/uwsgi/conf'
 
-default['bq_uwsgi']['config']['emperor'] = '/etc/uwsgi/vassals'
+default['tgw_uwsgi']['config']['emperor'] = '/etc/uwsgi/vassals'
