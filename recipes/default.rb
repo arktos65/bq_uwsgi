@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 #
-# Cookbook Name:: bq_uwsgi
+# Cookbook Name:: tgw_uwsgi
 # Recipe:: default
 #
-# Copyright 2017, BarriqueSoft.
+# Copyright 2017 TGW Consulting, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
 #
 
 # Compile the uWSGI core application
-include_recipe 'bq_uwsgi::prepare'
-include_recipe 'bq_uwsgi::build_core'
-include_recipe 'bq_uwsgi::build_plugins'
-include_recipe 'bq_uwsgi::configure'
+include_recipe 'tgw_uwsgi::prepare'
+include_recipe 'tgw_uwsgi::build_core'
+include_recipe 'tgw_uwsgi::build_plugins'
+include_recipe 'tgw_uwsgi::configure'

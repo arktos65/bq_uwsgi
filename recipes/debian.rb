@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 #
-# Cookbook Name:: bq_uwsgi
+# Cookbook Name:: tgw_uwsgi
 # Recipe:: _debian
 #
-# Copyright 2017, BarriqueSoft.
+# Copyright 2017 TGW Consulting, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -30,28 +30,28 @@ template '/etc/logrotate.d/uwsgi.ini' do
   action :create
   notifies :restart, 'service[rsyslog]', :delayed
 end
-template "#{node['bq_uwsgi']['config']['directories']['share_conf']}/default.ini" do
+template "#{node['tgw_uwsgi']['config']['directories']['share_conf']}/default.ini" do
   source 'default.ini'
   owner 'root'
   group 'root'
   mode '0644'
   action :create
 end
-template "#{node['bq_uwsgi']['config']['directories']['share_init']}/do_command" do
+template "#{node['tgw_uwsgi']['config']['directories']['share_init']}/do_command" do
   source 'do_command.sh'
   owner 'root'
   group 'root'
   mode '0644'
   action :create
 end
-template "#{node['bq_uwsgi']['config']['directories']['share_init']}/snippets" do
+template "#{node['tgw_uwsgi']['config']['directories']['share_init']}/snippets" do
   source 'snippets.sh'
   owner 'root'
   group 'root'
   mode '0644'
   action :create
 end
-template "#{node['bq_uwsgi']['config']['directories']['share_init']}/specific_daemon" do
+template "#{node['tgw_uwsgi']['config']['directories']['share_init']}/specific_daemon" do
   source 'specific_daemon.sh'
   owner 'root'
   group 'root'

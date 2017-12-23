@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 #
-# Cookbook Name:: bq_uwsgi
+# Cookbook Name:: tgw_uwsgi
 # Recipe:: build-core
 #
-# Copyright 2017, BarriqueSoft.
+# Copyright 2017 TGW Consulting, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@
 ###
 
 # Load the build template for the uWSGI core
-template "#{node['bq_uwsgi']['buildconf']}/uwsgi_modular.ini" do
+template "#{node['tgw_uwsgi']['buildconf']}/uwsgi_modular.ini" do
   source 'build_uwsgi_modular.ini.erb'
   owner 'root'
   group 'root'
@@ -33,25 +33,25 @@ template "#{node['bq_uwsgi']['buildconf']}/uwsgi_modular.ini" do
 end
 
 # Compile the uWSGI core binary
-bash "build_uwsgi_#{node['bq_uwsgi']['version']}_core" do
-  cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['bq_uwsgi']['version']}"
+bash "build_uwsgi_#{node['tgw_uwsgi']['version']}_core" do
+  cwd "#{Chef::Config[:file_cache_path]}/uwsgi-#{node['tgw_uwsgi']['version']}"
   code <<-EOH
     python uwsgiconfig.py --build uwsgi_modular
   EOH
 end
 
-bash "installing_uwsgi_#{node['bq_uwsgi']['version']}_core_binary" do
+bash "installing_uwsgi_#{node['tgw_uwsgi']['version']}_core_binary" do
   cwd Chef::Config[:file_cache_path]
   code <<-EOH
-  cp -fv uwsgi-#{node['bq_uwsgi']['version']}/uwsgi #{node['bq_uwsgi']['core']['directory']}/#{node['bq_uwsgi']['core']['binary']}
-  chown root:root #{node['bq_uwsgi']['core']['directory']}/#{node['bq_uwsgi']['core']['binary']}
-  chmod 0755 #{node['bq_uwsgi']['core']['directory']}/#{node['bq_uwsgi']['core']['binary']}
+  cp -fv uwsgi-#{node['tgw_uwsgi']['version']}/uwsgi #{node['tgw_uwsgi']['core']['directory']}/#{node['tgw_uwsgi']['core']['binary']}
+  chown root:root #{node['tgw_uwsgi']['core']['directory']}/#{node['tgw_uwsgi']['core']['binary']}
+  chmod 0755 #{node['tgw_uwsgi']['core']['directory']}/#{node['tgw_uwsgi']['core']['binary']}
   EOH
 end
 
 # Add required symlinks
 link '/etc/alternatives/uwsgi' do
-  to "#{node['bq_uwsgi']['core']['directory']}/#{node['bq_uwsgi']['core']['binary']}"
+  to "#{node['tgw_uwsgi']['core']['directory']}/#{node['tgw_uwsgi']['core']['binary']}"
   action :create
 end
 link '/usr/bin/uwsgi' do

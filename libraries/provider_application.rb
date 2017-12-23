@@ -84,25 +84,25 @@ class Chef
 
       # Check to see if application configuration file exists
       def application_exists?
-        path = node['bq_uwsgi']['config']['directories']['apps_available']
+        path = node['tgw_uwsgi']['config']['directories']['apps_available']
         return Chef::Provider::File.exist?("#{path}/#{@new_resource.name}")
       end
 
       # Check to see if application configuration symlink exists
       def application_enabled?
-        path = node['bq_uwsgi']['config']['directories']['apps_enabled']
+        path = node['tgw_uwsgi']['config']['directories']['apps_enabled']
         return Chef::Provider::File.symlink?("#{path}/#{@new_resource.name}")
       end
 
       # Returns full path of application configuration file
       def application_file
-        path = node['bq_uwsgi']['config']['directories']['apps_available']
+        path = node['tgw_uwsgi']['config']['directories']['apps_available']
         return "#{path}/#{@current_resource.name}"
       end
 
       # Returns full path of application configuration symlink
       def application_link
-        path = node['bq_uwsgi']['config']['directories']['apps_enabled']
+        path = node['tgw_uwsgi']['config']['directories']['apps_enabled']
         return "#{path}/#{@current_resource.name}"
       end
 

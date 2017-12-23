@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 #
-# Cookbook Name:: bq_uwsgi
+# Cookbook Name:: tgw_uwsgi
 # Spec:: default
 #
-# Copyright 2017, BarriqueSoft.
+# Copyright 2017 TGW Consulting, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
 
 require 'spec_helper'
 
-# describe 'bq_uwsgi::default' do
+# describe 'tgw_uwsgi::default' do
 #   context 'When all attributes are default, on an Ubuntu 16.04' do
 #     let(:chef_run) do
 #       # for a complete list of available platforms and versions see:

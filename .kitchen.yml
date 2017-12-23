@@ -12,7 +12,7 @@ platforms:
 
 suites:
   - name: default
-    run_list: recipe[bq_uwsgi::default]
+    run_list: recipe[tgw_uwsgi::default]
     attributes:
       uwsgi:
         emperor:
