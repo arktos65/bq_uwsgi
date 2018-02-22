@@ -72,7 +72,7 @@ Include `tgw_uwsgi` in your node's `run_list`:
 
 License & Authors
 -----------------
-- Author:: Sean M. Sullivan (<sean@barriquesoft.com>)
+- Author:: Sean M. Sullivan (<sean@tgwconsulting.co>)
 
 ```text
 Copyright:: 2017-2018 TGW Consulting, LLC
