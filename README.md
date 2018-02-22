@@ -75,7 +75,8 @@ License & Authors
 - Author:: Sean M. Sullivan (<sean@barriquesoft.com>)
 
 ```text
-Copyright:: 2017 TGW Consulting, LLC
+Copyright:: 2017-2018 TGW Consulting, LLC
+Copyright:: 2014-2017 Pulselocker, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
