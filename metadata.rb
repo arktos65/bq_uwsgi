@@ -19,5 +19,4 @@ recipe 'tgw_uwsgi::configure', 'Creates and configures the runtime environment.'
 
 depends 'apt', '~> 7.2.0'
 depends 'build-essential', '~> 8.2.1'
-depends 'poise-python', '~> 1.7.0'
 depends 'rsyslog', '~> 7.0.1'

@@ -34,6 +34,9 @@ include_recipe 'build-essential'
 apt_package 'python' do
   action :install
 end
+apt_package 'python-dev' do
+  action :install
+end
 apt_package 'python3' do
   action :install
 end
