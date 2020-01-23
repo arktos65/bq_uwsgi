@@ -4,7 +4,7 @@
 # Cookbook Name:: tgw_uwsgi
 # Recipe:: _prepare
 #
-# Copyright 2017 TGW Consulting, LLC.
+# Copyright 2017-2020 TGW Consulting, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,7 +29,17 @@ if node['platform_family'] == 'debian'
 end
 include_recipe 'rsyslog'
 include_recipe 'build-essential'
-include_recipe 'poise-python'
+
+# Install Python from apt packages
+apt_package 'python' do
+  action :install
+end
+apt_package 'python-dev' do
+  action :install
+end
+apt_package 'python3' do
+  action :install
+end
 
 # Workaround for bug in Python 2.7 apt package (Issue #16)
 unless File.exist?('/usr/bin/python')

@@ -4,7 +4,7 @@
 # Cookbook Name:: tgw_uwsgi
 # Recipe:: configure
 #
-# Copyright 2017 TGW Consulting, LLC.
+# Copyright 2017-2020 TGW Consulting, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.

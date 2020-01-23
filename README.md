@@ -11,7 +11,7 @@ allow flexible configuration.
 
 ## Supported Platforms
 
-Supported platforms:  Ubuntu Server 14.04, 16.04
+Supported platforms:  Ubuntu Server 16.04, 18.04
 
 Resources
 ---------
@@ -75,7 +75,7 @@ License & Authors
 - Author:: Sean M. Sullivan (<sean@tgwconsulting.co>)
 
 ```text
-Copyright:: 2017-2018 TGW Consulting, LLC
+Copyright:: 2017-2020 TGW Consulting, LLC
 Copyright:: 2014-2017 Pulselocker, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
