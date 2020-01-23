@@ -20,7 +20,7 @@
 #
 
 # uWSGI source
-default['tgw_uwsgi']['version'] = '2.0.15'
+default['tgw_uwsgi']['version'] = '2.0.18'
 default['tgw_uwsgi']['download_url'] = 'http://projects.unbit.it/downloads'
 default['tgw_uwsgi']['service'] = 'uwsgi-server'
 

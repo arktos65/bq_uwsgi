@@ -1,6 +1,14 @@
 tgw_uwsgi COOKBOOK CHANGELOG
 ===========================
 
+1.1.0 (2020-01-23)
+------------------
+- Updated to support Ubuntu Server 18.08.  Deprecated Ubuntu Server 14.04.
+- Updated versions of cookbook dependencies.
+- Updated versions of Ruby gem dependencies.
+- Supports uWSGI 2.0.18.
+- Dropped `poise-python` cookbook because it's no longer supported.
+
 1.0.0 (2017-12-22)
 ------------------
 - Updated copyright to new owner name.

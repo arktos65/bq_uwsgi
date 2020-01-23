@@ -6,7 +6,7 @@ AllCops:
     - lib/kitchen/driver/docker/*
     - Vagrantfile
   TargetRubyVersion: 2.3
-AlignParameters:
+ParameterAlignment:
   Enabled: false
 
 Encoding:
